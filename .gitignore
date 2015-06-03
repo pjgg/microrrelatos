@@ -2,3 +2,4 @@ dist
 *.sass*
 *.tmp*
 *.project
+node_modules
