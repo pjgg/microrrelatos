@@ -1,0 +1,95 @@
+						<div ng-show="tab.isSet(3)" ng-controller="writersCtrl as wCtrl">
+						<div class="box">
+								<form name="findWritersForm" ng-submit="findWriters()" novalidate>
+									<div class="row uniform half collapse-at-2">
+											<div class="9u">
+												<input type="text" name="query" id="query" value="" placeholder="author name" ng-model="find.query"/>
+											</div>
+											<div class="3u">
+												<input type="submit" value="Search" class="fit" />
+											</div>
+									</div>
+								</form>
+						</div>
+
+
+								<div class="box" ng-show="isWriterSelected === false">
+									
+								<h3>Writers</h3>
+
+								<div class="box alt" >
+
+									<div class="row no-collapse half uniform">
+										<div class="3u" ng-repeat="writer in writers.slice(0, 4)">
+											<span class="image fit"><a href ng-click="showUser(writer.id)"><img width="100" height="100" ng-src="{{writer.avatarUrl}}" alt="{{writer.name}}" title="{{writer.name}}" /></a></span>
+										</div>
+									</div>
+									<div class="row no-collapse half uniform">
+										<div class="3u" ng-repeat="writer in writers.slice(4, 8)">
+											<span class="image fit"><a href ng-click="showUser(writer.id)"><img width="100" height="100" ng-src="{{writer.avatarUrl}}" alt="{{writer.name}}" title="{{writer.name}}" /></a></span>
+										</div>
+									</div>
+									<div class="row no-collapse half uniform">
+										<div class="3u" ng-repeat="writer in writers.slice(8, 12)">
+											<span class="image fit"><a href ng-click="showUser(writer.id)"><img width="100" height="100" ng-src="{{writer.avatarUrl}}" alt="{{writer.name}}" title="{{writer.name}}" /></a></span>
+										</div>
+									</div>
+
+									<div class="row no-collapse half uniform">
+										<div class="6u textLeft">
+											<ul class="actions vertical small">
+												<li><a ng-show="currentPage > 0" href ng-click="prevPage()" class="button alt small">Prev</a></li>
+											</ul>
+										</div>
+										<div class="6u textRight">
+											<ul class="actions vertical small">
+												<li><a ng-hide="currentPage + 1 >= pages" href ng-click="nextPage()" class="button alt small">Next</a></li>
+											</ul>
+										</div>
+									</div>
+
+								</div>
+								
+								</div>
+
+
+								<div class="box" ng-show="isWriterSelected === true">
+
+									<div class="box alt" >
+										<div class="row">
+											<div class="10u">
+												<h3>{{writerSelected.name}}</h3>
+											</div>
+											<div class="2u">
+												<a class="button special small fit" ng-show="isAlreadyFollow === false" ng-click="follow(writerSelected.id)"> + follow</a>
+											</div>
+										</div>
+										<p>
+											<span class="image left">
+												<img alt="{{writerSelected.name}}" width="100" height="100" ng-src="{{writerSelected.avatarUrl}}" title="{{writerSelected.name}}"/>
+											</span>
+											
+											<i ng-show="writerSelected.authorDesc.length > 0">
+												{{writerSelected.authorDesc}} 
+											</i>
+
+											<p ng-hide="writerSelected.authorDesc.length > 0">
+												Author description empty!.
+											</p>
+										</p>
+									</div>
+									<div class="box" ng-repeat="microrrelato in microrrelatos">
+										<h3>{{microrrelato.title}}</h3>
+										<span class="microrrelato">
+											{{microrrelato.body}} 
+										</span>
+									</div>
+									<div class="12u" ng-hide="findMicrorrelatosCurrentPage + 1 >= findMicrorrelatosPages">
+										<ul class="actions vertical small">
+											<li><a class="button alt small fit" href ng-click="nextFindMicrorrelatosPage(writerSelected.id)"> More</a></li>
+										</ul>
+									</div>
+								</div>
+
+
+						</div>

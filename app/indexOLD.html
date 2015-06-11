@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html manifest="cache.manifest" ng-app="microrrelatosIndex">
+	<head>
+		<title>Microrrelatos2.0</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/jquery.scrollgress.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<!--<script src="js/skel-layers.min.js"></script>-->
+		<script src="js/init.js"></script>
+		<script type="text/javascript" src="js/kuasars.min.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/kuasarsSeviceProvider.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body class="landing">
+
+		<!-- Header -->
+			<header id="header" class="alt" ng-controller="loginFormCtrl as loginCtrl">
+				<h1><a href="index.html">Microrrelatos 2.0</a> by Bitmonlab</h1>
+
+				<nav id="nav">
+					<ul>
+						<li>
+							<form name="loginForm" ng-submit="loginCtrl.login()" id="loginForm" novalidate>
+								<div class="row uniform half collapse-at-2" >
+							
+									<div class="4u">
+										<input type="email" name="email" id="loginEmail" placeholder="email" ng-model="loginFormData.email" autofocus/>
+									</div>
+									<div class="4u">
+										<input type="password" name="password" id="loginPassword" placeholder="password" ng-model="loginFormData.password" ng-minlength="4" ng-maxlength="30"  />
+									</div>
+									<div class="4u">
+										<input type="submit" value="Sign in" class="fit" id="signIn" />
+									</div>
+								
+								</div>
+							</form>
+						</li>
+					</ul>
+				</nav>
+			
+			</header>
+
+		<!-- Banner -->
+			<section id="banner" ng-controller="loginFormCtrl as loginCtrl">
+				<h2>Microrrelatos 2.0</h2>
+				<p>¿Sabes quién es Dani Lao?, ¿has leído su último microrrelato?... aquí podrás leerlo y adaptarle el final por lo que ¡tú elijas! </p>
+				<ul class="actions">
+					<li><a href="#cta" class="button special">Sign Up</a></li>
+					<li><a href="#main" class="button">Leer Octubre</a></li>
+					<li ng-hide="isMobile === true"><a href="loginMobile.html" class="button alt">Login</a></li>
+				</ul>
+			</section>
+
+		<!-- Main -->
+			<section id="main" class="container">
+		
+				<section class="box special">
+					<header class="major">
+						<h2>Octubre</h2>
+						<p class="align-left">
+						Las alfombras de otoño ya empezaban a cubrir las sombras de los árboles, por lo que a
+						Paulo no le quedarían muchos días para seguir disfrutando de una de sus terrazas
+						favoritas de la ciudad. Casualmente, un par de mesas más allá, estaba sentada ella.
+						Paulo quedó atrapado desde la primera mirada. Intentar adivinar su nombre, por su cara
+						y su forma de vestir, fue sólo el principio. Se vio paseando con ella del brazo, cenando
+						juntos a la luz de una vela e incluso, eligiendo la cubertería de su futuro hogar. ¿Sería de
+						allí?¿Estaría de paso? Ya sabía el nombre de sus dos primeros hijos, dónde irían de
+						vacaciones en verano y con qué la iba a sorprender cuando los niños empezaran la
+						universidad. De repente, ella se levantó, y tras despedirse del chico que la había
+						atendido, empezó a caminar calle arriba. ¡Era el momento! ¡Paulo tenía que ir tras ella o
+						el viento de octubre se llevaría algo más que hojas! Pero bajó la cabeza. Ella se alejaba.
+						Él, cogió la taza y se la llevó a los labios. Ella se perdió entre la multitud. El bebió.
+						“Puede que en otra ocasión”. Su té ya no quemaba. <footer style="text-align:right;"><b>Dani Lao.</b></footer> <br /> 
+						</p>
+			        
+
+					</header>
+					
+				</section>
+				
+			
+		<!-- CTA -->
+			<section id="cta">
+				
+					
+				<div class="divContainerSignUP" ng-controller="registerFormCtrl as registerCtrl">
+					<h2 id="registerStatus" ng-hide="isVerificationCode"> Sign up. Change starts here!</h2>
+					<form name="requestVerificationCodeForm" ng-submit="registerCtrl.getVerificationCode()" novalidate>
+						<div id="signUpReqVerfCode" class="row uniform half collapse-at-2" ng-hide="isVerificationCode">
+							<div class="8u">
+								<input type="email" name="email" id="emailVerificationCode" placeholder="email" ng-model="registerFormData.email" required ng-class="showValidation ? 'validate' : ''"/>
+							</div>
+							<div class="3u">
+								<input type="submit" value="Sign Up" class="fit" id="reqVerificationCodeBtn"/>
+							</div>
+							<div class="error" ng-show="showValidation && !isServerErrorMsg">
+								<ul>
+									<li>
+        						{{getEmailError(requestVerificationCodeForm.email.$error)}}
+        							</li>
+        						<ul>
+    						</div>
+    						<div class="error" ng-show="showValidation && isServerErrorMsg">
+        						{{serverErrorMsg}}
+    						</div>
+						</div>
+					</form>
+
+					<form name="registerForm" ng-submit="registerCtrl.register()" novalidate>
+						<h2 id="checkEmailStatus" ng-show="isVerificationCode"> Check your email and end the proccess!</h2>
+						<div id="signUpRegister" class="row uniform half collapse-at-2" ng-show="isVerificationCode">
+							<div class="3u">
+								<input id="verificationCode" type="text" name="verfCode" placeholder="verification code" ng-model="registerFormData.verificationCode" ng-minlength="5" ng-maxlength="5" required/>
+							</div>
+							<div class="3u">
+								<input id="signUpName" type="text" name="name" placeholder="nick name" ng-model="registerFormData.name" ng-minlength="3" ng-maxlength="30" required/>
+							</div>
+							<div class="3u">
+								<input id="signUpPassword" type="password" name="password" placeholder="password" ng-model="registerFormData.password" ng-minlength="4" ng-maxlength="30" required/>
+							</div>
+							<div class="2u">
+								<input type="submit" value="Sign Up" class="fit" id="signUpBtn"/>
+							</div>
+							<div class="error" ng-show="showRegisterSecondStepValidation">
+								<span ng-show="registerForm.verfCode.$invalid">
+        							{{getVerificationCodeError(registerForm.verfCode.$error)}}
+        						</span>
+
+        						<span ng-show="registerForm.verfCode.$valid">
+        							{{getNameError(registerForm.name.$error)}}
+        						</span>
+
+        						<span ng-show="registerForm.verfCode.$valid && registerForm.name.$valid">
+        							{{getPasswordError(registerForm.password.$error)}}
+        						</span>
+
+    						</div>
+						</div>
+					</form>
+				
+				</div>
+				
+			</section>
+			
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="copyright">
+					<li>&copy; Bitmonlab. All rights reserved.</li>
+				</ul>
+			</footer>
+
+	</body>
+</html>

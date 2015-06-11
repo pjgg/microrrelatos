@@ -1,0 +1,42 @@
+
+				<div ng-show="tab.isSet(5)" ng-controller="wallCtrl as wCtrl">
+						<h3>Wall Of Microrrelatos</h3>
+						
+						<div class="row">
+							<div class="12u">
+									<div class="boxContainerWall" ng-repeat="microrrelatoWall in microrrelatosWall">
+										<div class="row">
+											<div class="10u">
+											   <h2>{{microrrelatoWall.title}}</h2>
+										    </div>
+											<div class="2u">
+												<div class="rating">
+													<span ng-class="{starFilled: microrrelatoWall.score >= 5}" ng-click="addScore(microrrelatoWall.id,'5')">☆</span>
+													<span  ng-class="{starFilled: microrrelatoWall.score >= 4}" ng-click="addScore(microrrelatoWall.id,'4')">☆</span>
+													<span ng-class="{starFilled: microrrelatoWall.score >= 3}" ng-click="addScore(microrrelatoWall.id,'3')">☆</span>
+													<span ng-class="{starFilled: microrrelatoWall.score >= 2}" ng-click="addScore(microrrelatoWall.id,'2')">☆</span>
+													<span ng-class="{starFilled: microrrelatoWall.score >= 1}" ng-click="addScore(microrrelatoWall.id,'1')">☆</span>
+											   </div>
+											</div>
+										</div>
+										<p>
+											<span class="image left">
+												<img alt="" width="100" height="100" ng-src="{{microrrelatoWall.author.avatarUrl}}" title="{{microrrelatoWall.author.name}}">
+											</span>
+											<span class="microrrelato">
+											{{microrrelatoWall.body}} 
+											</span>
+										</p>
+										<p class="textRight"><b>{{microrrelatoWall.author.name}}.</b></p>
+
+									</div>
+								
+							</div>
+
+							<div class="12u" ng-hide="wallCurrentPage + 1 >= wallPages">
+									<ul class="actions vertical small">
+										<li><a class="button alt small fit" href ng-click="nextWallPage()">More</a></li>
+									</ul>
+							</div>
+						</div>
+				</div>
