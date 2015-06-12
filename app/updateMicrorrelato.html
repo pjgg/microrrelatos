@@ -1,0 +1,48 @@
+
+<div class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">{{title}} - Updated on {{lastUpdateTime  | date:'dd/MM/yyyy @ h:mma'}}</h4>
+      </div>
+      <div class="modal-body">
+      
+      <div class="Modalbox">
+          <form name="newForm" novalidate>
+             <div class="row uniform half">
+              <div class="12u">
+                <input ng-model="updatedTitle" type="text" name="updatedTitle" id="updatedTitle" placeholder="Title"/>
+              </div>
+            </div>
+
+            <div class="row uniform half">
+              <div class="12u">
+                <textarea ng-model="updatedBody" name="updatedBody" id="updatedBody" placeholder="Your 'microrrelato' start here ..." rows="6" required></textarea>
+              </div>
+            </div>
+
+           
+
+            <div class="row uniform">
+              <div class="10u">
+                <ul class="actions">
+                  <li><input id="saveMicrorrelato" type="submit" value="Save Microrrelato" ng-click="update()"/></li>
+                  <li><input type="button" value="Reset" class="alt"  ng-click="reset()"/></li>
+                </ul>
+              </div>
+                <div class="2u">
+                <input id="isPublicCheckBox" type="checkbox" name="isPublicCheckBox" ng-model="isPublic" ng-true-value="true" ng-true-value="false">
+                <label for="isPublicCheckBox">Make public</label>
+              </div>
+            </div>
+            </form>
+        </div>
+
+      </div>
+     <!-- <div class="modal-footer">
+        <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">OK</button>
+      </div>-->
+    </div>
+  </div>
+</div>

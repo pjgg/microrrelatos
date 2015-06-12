@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html manifest="cache.manifest" ng-app="userPublic">
+	<head>
+		<title>Microrrelatos2.0 - history</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/jquery.scrollgress.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<script type="text/javascript" src="js/kuasars.min.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/kuasarsSeviceProvider.js"></script>
+		<script type="text/javascript" src="js/publicUser.js"></script>
+
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<header id="header">
+				<h1><a href="index.html">Microrrelatos 2.0</a> by Bitmonlab</h1>
+		</header>
+
+		<section id="main" class="container">
+			<div class="row">
+				<div class="12u">
+					<section class="box">
+						<div class="box alt" ng-controller="UserPublicController as userCtrl">
+							<h2>{{authorName}}</h2>
+							<p>
+								<span class="image left">
+									<img alt="" width="100" height="100" ng-src="{{avatarURL}}" title="{{authorName}}">
+								</span>
+								<p>
+									<i ng-show="description.length > 0">{{description}}</i>
+								</p>
+								<p ng-hide="description.length > 0">No author description was given.</p>
+							</p>
+							
+						</div>
+					</section>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="copyright">
+					<li>&copy; Bitmonlab. All rights reserved.</li>
+				</ul>
+			</footer>
+
+	</body>
+</html>

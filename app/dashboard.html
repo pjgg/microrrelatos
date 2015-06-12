@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html manifest="cache.manifest" ng-app="microrrelatos">
+	<head>
+		<title>Microrrelatos2.0 - history</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		
+		 <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <script type="text/javascript" src="scripts/kuasars.min.js"></script>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    
+    <!-- endbuild -->
+
+      <link rel="stylesheet" href="styles/skel.css" />
+      <link rel="stylesheet" href="styles/style.css" />
+      <link rel="stylesheet" href="styles/style-wide.css" />
+       <!--[if lte IE 8]><link rel="stylesheet" href="styles/ie/v8.css" /><![endif]-->
+	</head>
+	<body id="menuController" ng-controller="TabController as tab">
+
+		<header id="header">
+				<h1><a href="index.html">Microrrelatos 2.0</a> by Bitmonlab</h1>
+				<!--<nav id="nav" ng-show="isMobile === 'false'">
+					<ul>
+						<li><a href class="button" ng-click="tab.setTab(2)"> <span class="indent-0" ng-click="tab.setTab(2)">New</span></a></li>
+						<li><a href class="button" ng-click="tab.setTab(1)">History</a></li>
+						<li><a href class="button" ng-click="tab.setTab(5)">Wall</a></li>
+						<li><a href class="button" ng-click="tab.setTab(3)">Writers</a></li>
+						<li class="opener">
+							<a href="" class="icon fa-angle-down" id="mainMenuUserBtn">{{userName}}</a>
+								<ul>
+									<li><a href ng-click="tab.setTab(4)">Settings</a></li>
+									<li id="logOut"><a ng-click="tab.logOut()">Logout</a></li>
+								</ul>
+						</li>
+					</ul>
+				</nav>
+-->
+				<nav id="nav">
+					<ul>
+						<li><a href ="
+							javascript:angular.element(document.getElementById('menuController')).scope().tab.setTab(2);
+					        javascript:angular.element(document.getElementById('menuController')).scope().$apply();"
+          					class="button"> <span class="indent-0" ng-click="tab.setTab(2)">New</span></a>
+          				</li>
+						<li><a href = "
+							javascript:angular.element(document.getElementById('menuController')).scope().tab.setTab(1);
+					        javascript:angular.element(document.getElementById('menuController')).scope().$apply();"
+							class="button">History</a>
+						</li>
+						<li><a href = "javascript:angular.element(document.getElementById('menuController')).scope().tab.setTab(5);
+					        javascript:angular.element(document.getElementById('menuController')).scope().$apply();"
+						 class="button">Wall</a>
+						</li>
+						<li><a href="javascript:angular.element(document.getElementById('menuController')).scope().tab.setTab(3);
+					        javascript:angular.element(document.getElementById('menuController')).scope().$apply();"
+					         class="button">Writers</a>
+					    </li>
+						<li class="opener">
+							<a href="" class="icon fa-angle-down" id="mainMenuUserBtn">{{userName}}</a>
+								<ul>
+									<li>
+										<a href= "javascript:angular.element(document.getElementById('menuController')).scope().tab.setTab(4);
+					        				      javascript:angular.element(document.getElementById('menuController')).scope().$apply();">Settings</a>
+					     			</li>
+									<li id="logOut"><a href="javascript:angular.element(document.getElementById('menuController')).scope().tab.logOut();javascript:angular.element(document.getElementById('menuController')).scope().$apply();">
+										Logout</a>
+									</li>
+								</ul>
+						</li>
+					</ul>
+				</nav>
+
+			</header>
+
+		<section id="history" class="container" >
+			<history> </history>
+		</section>
+
+		<section id="new" class="container">
+			<new> </new>		
+		</section>
+
+		<section id="writer" class="container">
+			<writers> </writers>
+		</section>
+
+		<section id="wall" class="container">
+			<wall> </wall>
+		</section>
+
+		<section id="settings" class="container">
+			<settings> </settings>		
+		</section>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="copyright">
+					<li>&copy; Bitmonlab. All rights reserved.</li>
+				</ul>
+			</footer>
+
+<!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/skel/src/skel.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <script src="scripts/externalLib/jquery.dropotron.min.js"></script>
+        <script src="scripts/externalLib/jquery.scrollgress.min.js"></script>
+        <script type="text/javascript" src="scripts/kuasarsSeviceProvider.js"></script>
+        <script type="text/javascript" src="scripts/app.js"></script>
+    	<script type="text/javascript" src="scripts/history.js"></script>
+    	<script type="text/javascript" src="scripts/writers.js"></script>
+    	<script type="text/javascript" src="scripts/new.js"></script>
+	    <script type="text/javascript" src="scripts/settings.js"></script>
+	    <script type="text/javascript" src="scripts/wall.js"></script>
+	    <script type"text/javascript" src="scripts/angularModalService.js"></script>  
+	</body>
+</html>

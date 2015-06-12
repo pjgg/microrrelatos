@@ -1,0 +1,28 @@
+
+<div class="box" ng-show="tab.isSet(2)" ng-controller="newCtrl as newMicrorrelatoCtrl">
+					<form name="newForm" ng-submit="newForm.$valid && newMicrorrelatoCtrl.addMicrorrelato()" novalidate>
+
+					<h3>New Microrrelato</h3>
+						
+						<div class="row uniform half">
+							<div class="12u">
+								<textarea ng-model="microrrelato.message" name="message" id="message" placeholder="Your 'microrrelato' start here ..." rows="6" required></textarea>
+							</div>
+						</div>
+
+						<div class="row uniform half">
+							<div class="12u">
+								<input ng-model="microrrelato.title" type="text" name="subject" id="subject" value="" placeholder="Title"/>
+							</div>
+						</div>
+
+						<div class="row uniform">
+							<div class="12u">
+								<ul class="actions">
+									<li><input id="saveMicrorrelato" type="submit" value="Save Microrrelato" /></li>
+									<li><input type="reset" value="Reset" class="alt" /></li>
+								</ul>
+							</div>
+						</div>
+						</form>
+				</div>

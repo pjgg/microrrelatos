@@ -1,0 +1,48 @@
+
+				<div class="box" ng-show="tab.isSet(1)" ng-controller="historyCtrl as historyMicrorrelatoCtrl">
+								<h3>History</h3>
+								
+								<div class="table-wrapper" ng-show="isHistoryEmpty === false">
+									<table class="microrrelatosHistoryTable">
+										<thead>
+											<tr>
+												<th>Date</th>
+												<th>Title</th>
+												<th>Public URL</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="microrrelato in microrrelatos" ng-click="updateMicrorrelato(microrrelato.id)">
+												<td>{{microrrelato.updatedAt | date:'dd/MM/yyyy @ h:mma'}}</td>
+												<td>{{microrrelato.title}}</td>
+												<td>{{microrrelato.publicURL}}</td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="1" class="textLeft">
+													<ul class="actions vertical small" ng-show="currentPage > 0">
+														<li><a href ng-click="prevPage()" class="button alt small">Prev page</a></li>
+													</ul>
+												</td>
+												<td colspan="1"></td>
+												<td class="textRight">
+													<ul class="actions vertical small" ng-hide="currentPage + 1 >= pages">
+														<li><a href ng-click="nextPage()" class="button alt small">Next page</a></li>
+													</ul>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+								<div class="table-wrapper" ng-show="isHistoryEmpty === true">
+									<div class="row">
+										<div class="12u">
+											<p class="align-center">No records found.</p>
+										</div>
+									</div>
+								</div>
+
+
+				</div>
+			

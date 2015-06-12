@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="microrrelatosIndex">
   <head>
     <meta charset="utf-8">
     <title>Microrrelatos</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-   
+    <script type="text/javascript" src="scripts/kuasars.min.js"></script>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -18,26 +18,26 @@
       <link rel="stylesheet" href="styles/skel.css" />
       <link rel="stylesheet" href="styles/style.css" />
       <link rel="stylesheet" href="styles/style-wide.css" />
-    
+
     <!--[if lte IE 8]><link rel="stylesheet" href="styles/ie/v8.css" /><![endif]-->
   </head>
-  <body class="landing" ng-app="microrrelatosApp">
+  <body class="landing">
 
-    <!-- Header -->
-      <header id="header" class="alt">
+   <!-- Header -->
+      <header id="header" class="alt" ng-controller="loginFormCtrl as loginCtrl">
         <h1><a href="index.html">Microrrelatos 2.0</a> by Bitmonlab</h1>
 
         <nav id="nav">
           <ul>
             <li>
-              <form name="loginForm" id="loginForm" novalidate>
+              <form name="loginForm" ng-submit="loginCtrl.login()" id="loginForm" novalidate>
                 <div class="row uniform half collapse-at-2" >
               
                   <div class="4u">
-                    <input type="email" name="email" id="loginEmail" placeholder="email" autofocus/>
+                    <input type="email" name="email" id="loginEmail" placeholder="email" ng-model="loginFormData.email" autofocus/>
                   </div>
                   <div class="4u">
-                    <input type="password" name="password" id="loginPassword" placeholder="password" ng-minlength="4" ng-maxlength="30"  />
+                    <input type="password" name="password" id="loginPassword" placeholder="password" ng-model="loginFormData.password" ng-minlength="4" ng-maxlength="30"  />
                   </div>
                   <div class="4u">
                     <input type="submit" value="Sign in" class="fit" id="signIn" />
@@ -52,7 +52,7 @@
       </header>
 
     <!-- Banner -->
-      <section id="banner">
+      <section id="banner" ng-controller="loginFormCtrl as loginCtrl">
         <h2>Microrrelatos 2.0</h2>
         <p>¿Sabes quién es Dani Lao?, ¿has leído su último microrrelato?... aquí podrás leerlo y adaptarle el final por lo que ¡tú elijas! </p>
         <ul class="actions">
@@ -94,7 +94,7 @@
       <section id="cta">
         
           
-        <div class="divContainerSignUP">
+        <div class="divContainerSignUP" ng-controller="registerFormCtrl as registerCtrl">
           <h2 id="registerStatus" ng-hide="isVerificationCode"> Sign up. Change starts here!</h2>
           <form name="requestVerificationCodeForm" ng-submit="registerCtrl.getVerificationCode()" novalidate>
             <div id="signUpReqVerfCode" class="row uniform half collapse-at-2" ng-hide="isVerificationCode">
@@ -193,5 +193,8 @@
         <!-- endbuild -->
         <script src="scripts/externalLib/jquery.dropotron.min.js"></script>
         <script src="scripts/externalLib/jquery.scrollgress.min.js"></script>
+        <script type="text/javascript" src="scripts/kuasarsSeviceProvider.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+        
 </body>
 </html>

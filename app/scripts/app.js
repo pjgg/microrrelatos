@@ -8,26 +8,37 @@
  *
  * Main module of the application.
  */
-angular
-  .module('microrrelatosApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+(function() {
+  var app = angular.module('microrrelatos', ['history','writers','new','settings','wall',"injectableThoughts"]);
+
+ app.controller('TabController',[ '$scope', 'kuasarsServiceLocator', function($scope, kuasarsServiceLocator){
+    this.tab = 1;
+    $scope.userName = sessionStorage.getItem('userName');
+    $scope.isMobile = sessionStorage.getItem("isMobile");
+
+    this.setTab = function(newValue){
+      this.tab = newValue;
+    };
+
+    this.isSet = function(tabName){
+      return this.tab === tabName;
+    };
+
+    this.logOut = function(){
+      var i = sessionStorage.length;
+      while(i--) {
+      var key = sessionStorage.key(i);
+      sessionStorage.removeItem(key); 
+    }
+    kuasarsServiceLocator.logout();
+    $(location).attr('href',"index.html");
+    };
+
+    $scope.$on('reloadTab', function(event, value) {
+      this.tab = value;
+    });
+  }]);
+
+
+
+})();

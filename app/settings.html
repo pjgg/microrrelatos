@@ -1,0 +1,39 @@
+
+<div class="box" ng-show="tab.isSet(4)" ng-controller="settingsCtrl as sCtrl">
+					<form id="settingsForm" name="settingsForm" ng-submit="settingsForm.$valid && updateUser()" novalidate>
+
+					<h3>{{status}}</h3>
+						
+						<div class="row uniform half ollapse-at-3">
+							<div class="6u">
+								<input id="name" type="text" placeholder="Name" value="" name="name" ng-model="name" ng-minlength="3" ng-maxlength="30" required>
+							</div>
+							<div class="6u">
+								<input id="email" type="email" placeholder="Email" value="" name="email" ng-model="email" disabled>
+							</div>
+						</div>
+
+						<div class="row uniform half">
+							<div class="12u">
+								<input id="avatarUrl" type="url" placeholder="Avatar URL. Picture size 100 x 100 px" value="" name="avatarUrl" ng-model="avatarURL">
+							</div>
+						</div>
+						
+						<div class="row uniform half">
+							<div class="12u">
+									<textarea ng-model="aboutYourSelf" name="message" id="message" placeholder="Tell us about your self, where did you born, where do you live... Try to be more near to your followers, for example which are your favorites books, and writters? what about music ?, how many languages do you speak?... hobbies." rows="6"></textarea>
+								</div>
+							</div>
+
+						<div class="row uniform">
+							<div class="12u">
+								<ul class="actions">
+									<li><input id="saveProfile" type="submit" value="Save profile" /></li>
+								</ul>
+							</div>
+						</div>
+
+						</div>
+
+						</form>
+				</div>
