@@ -9,12 +9,12 @@
  * Main module of the application.
  */
 (function() {
-  var app = angular.module('microrrelatos', ['history','writers','new','settings','wall',"injectableThoughts"]);
+  var app = angular.module('microrrelatos', ['history','writers','new','settings','wall','injectableThoughts']);
 
  app.controller('TabController',[ '$scope', 'kuasarsServiceLocator', function($scope, kuasarsServiceLocator){
     this.tab = 1;
     $scope.userName = sessionStorage.getItem('userName');
-    $scope.isMobile = sessionStorage.getItem("isMobile");
+    $scope.isMobile = sessionStorage.getItem('isMobile');
 
     this.setTab = function(newValue){
       this.tab = newValue;
@@ -31,7 +31,7 @@
       sessionStorage.removeItem(key); 
     }
     kuasarsServiceLocator.logout();
-    $(location).attr('href',"index.html");
+    $(location).attr('href','index.html');
     };
 
     $scope.$on('reloadTab', function(event, value) {
