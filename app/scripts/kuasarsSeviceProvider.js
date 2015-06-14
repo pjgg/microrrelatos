@@ -266,8 +266,8 @@ myApp.provider('kuasarsServiceLocator',function() {
 
             
 myApp.config(function(kuasarsServiceLocatorProvider){
-    Kuasars.Core.init("PRO", "v1", "542e58c1e4b0e502ef2c239b");
-    kuasarsServiceLocatorProvider.setAppId("542e58c1e4b0e502ef2c239b");
+    Kuasars.Core.init("PRO", "v1", "557db0a8e4b07e884b26f556");
+    kuasarsServiceLocatorProvider.setAppId("557db0a8e4b07e884b26f556");
 });
 
 
